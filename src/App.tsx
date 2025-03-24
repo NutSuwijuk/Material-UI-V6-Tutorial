@@ -26,9 +26,12 @@ function App() {
         borderRadius: "4px",
       }}
     >
-      <Stack spacing={3} useFlexGap>
+      <Stack spacing={2} useFlexGap>
         <CssBaseline />
         {/* Reset CSS */}
+        <Typography variant="h1" sx={{fontSize: "2rem", fontWeight: 500}}>
+          Sign in
+        </Typography>
         <TextField
           required
           type="email"
