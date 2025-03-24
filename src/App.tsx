@@ -15,6 +15,8 @@ import SvgIcon from "@mui/material/SvgIcon";
 import AppTheme from "./AppTheme";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import { ColorSchemeSelectIcon } from "./ColorSchemeSelectIcon";
+import { TextFieldShadcn } from "./mui-treasury/text-field-shadcn";
 
 function ColorModeToggle() {
   const { mode, setMode} = useColorScheme();
@@ -38,7 +40,9 @@ function ColorModeToggle() {
 function App() {
   return (
     <AppTheme>
-      <ColorModeToggle/>
+      <Box sx={{ position: 'fixed', top:'1rem', right:'1rem' }}>
+        <ColorSchemeSelectIcon/>
+      </Box>
       <Box
         sx={(theme : Theme) => ({
           padding: "2rem",
@@ -61,7 +65,7 @@ function App() {
           <Typography variant="h1" sx={{fontSize: "2rem", fontWeight: 500}}>
             Sign in
           </Typography>
-          <TextField
+          <TextFieldShadcn
             required
             type="email"
             label="Email"
@@ -72,7 +76,7 @@ function App() {
             id="email"
             name="email"
             autoComplete="email"
-          ></TextField>
+          ></TextFieldShadcn>
           <TextField
             type="password"
             label="Password"
