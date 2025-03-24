@@ -7,6 +7,9 @@ import Box from "@mui/material/Box";
 // import { Theme } from "@emotion/react";
 
 const theme = createTheme({
+  colorSchemes: {
+    dark: true,
+  },
   palette: {
     primary: {
       main: "#111827",
