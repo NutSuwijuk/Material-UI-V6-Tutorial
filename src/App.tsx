@@ -12,87 +12,90 @@ import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Divider from "@mui/material/Divider";
 import SvgIcon from "@mui/material/SvgIcon";
+import AppTheme from "./AppTheme";
 
 function App() {
   return (
-    <Box
-      sx={{
-        padding: "2rem",
-        maxWidth: "400px",
-        margin: "auto",
-        marginTop: "10vh",
-        border: "1px solid #eee",
-        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.08)",
-        borderRadius: "4px",
-      }}
-    >
-      <Stack spacing={2} useFlexGap>
-        <CssBaseline />
-        {/* Reset CSS */}
-        <Typography variant="h1" sx={{fontSize: "2rem", fontWeight: 500}}>
-          Sign in
-        </Typography>
-        <TextField
-          required
-          type="email"
-          label="Email"
-          placeholder="your@email.com"
+    <AppTheme>
+      <Box
+        sx={{
+          padding: "2rem",
+          maxWidth: "400px",
+          margin: "auto",
+          marginTop: "10vh",
+          border: "1px solid #eee",
+          boxShadow: "0 2px 10px rgba(0, 0, 0, 0.08)",
+          borderRadius: "4px",
+        }}
+      >
+        <Stack spacing={2} useFlexGap>
+          <CssBaseline />
+          {/* Reset CSS */}
+          <Typography variant="h1" sx={{fontSize: "2rem", fontWeight: 500}}>
+            Sign in
+          </Typography>
+          <TextField
+            required
+            type="email"
+            label="Email"
+            placeholder="your@email.com"
+            variant="outlined"
+            fullWidth
+            autoFocus
+            id="email"
+            name="email"
+            autoComplete="email"
+          ></TextField>
+          <TextField
+            type="password"
+            label="Password"
+            placeholder="******"
+            name="password"
+            fullWidth
+            id="password"
+            // autoComplete='current-password'
+            required
+            variant="filled"
+          ></TextField>
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+            sx={{
+              marginLeft: "-12px",
+              "& .MuiFormControlLable-lable": { userSelect: "none"},
+
+            }}
+          />
+          <Button className="submit" variant="contained"
+          >Sign in
+          </Button>
+          <Typography
+            component="div"
+            variant="body2" //Default = body1
+            sx= {{ textAlign: "center"}} // Texe Center
+          >
+            Don&apos;t have an account?{" "}
+            <span>
+              <Link href='#' variant="body2">
+              Sing up
+              </Link>
+            </span>
+          </Typography>
+          <Divider sx={{ fontSize: "0.785rem"}}>or</Divider>
+          <Button startIcon=<GoogleIcon/>
           variant="outlined"
           fullWidth
-          autoFocus
-          id="email"
-          name="email"
-          autoComplete="email"
-        ></TextField>
-        <TextField
-          type="password"
-          label="Password"
-          placeholder="******"
-          name="password"
-          fullWidth
-          id="password"
-          // autoComplete='current-password'
-          required
-          variant="filled"
-        ></TextField>
-        <FormControlLabel
-          control={<Checkbox value="remember" color="primary" />}
-          label="Remember me"
-          sx={{
-            marginLeft: "-12px",
-            "& .MuiFormControlLable-lable": { userSelect: "none"},
+          >
+            Sign in with Google
+          </Button>
 
-          }}
-        />
-        <Button className="submit" variant="contained"
-        >Sign in
-        </Button>
-        <Typography
-          component="div"
-          variant="body2" //Default = body1
-          sx= {{ textAlign: "center"}} // Texe Center
-        >
-          Don&apos;t have an account?{" "}
-          <span>
-            <Link href='#' variant="body2">
-            Sing up
-            </Link>
-          </span>
-        </Typography>
-        <Divider sx={{ fontSize: "0.785rem"}}>or</Divider>
-        <Button startIcon=<GoogleIcon/>
-        variant="outlined"
-        fullWidth
-        >
-          Sign in with Google
-        </Button>
+          <Button startIcon=<FacebookIcon/> variant="outlined" fullWidth>
+            Sign in with Facebook
+          </Button>
 
-        <Button startIcon=<FacebookIcon/> variant="outlined" fullWidth>
-          Sign in with Facebook
-        </Button>
-
-      </Stack>
-    </Box>
+        </Stack>
+      </Box>
+    </AppTheme>
   );
 }
 
