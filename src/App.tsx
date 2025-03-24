@@ -51,9 +51,11 @@ function App() {
         <FormControlLabel
           control={<Checkbox value="remember" color="primary" />}
           label="Remember me"
-          // sx={{
-          //   ma,
-          // }}
+          sx={{
+            marginLeft: "-12px",
+            "& .MuiFormControlLable-lable": { userSelect: "none"},
+            
+          }}
         />
         <Button>Login</Button>
       </Stack>
