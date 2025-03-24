@@ -48,7 +48,11 @@ function App() {
           border: "1px solid #eee",
           boxShadow: "0 2px 10px rgba(0, 0, 0, 0.08)",
           // borderRadius: "4px",
-          borderRadius: `calc(${theme.shape.borderRadius}px * 2)`
+          borderRadius: `calc(${theme.vars.shape.borderRadius} * 2)`,
+          backgroundColor: theme.vars.palette.background.paper,
+          ...theme.applyStyles("dark", {
+            borderColor: theme.vars.palette.grey[800],
+          })
         })}
       >
         <Stack spacing={2} useFlexGap>

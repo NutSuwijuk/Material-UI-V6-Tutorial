@@ -5,49 +5,53 @@ import "@fontsource-variable/inter";
 // import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 // import { Theme } from "@emotion/react";
+import type{} from "@mui/material/themeCssVarsAugmentation"
 
 const theme = createTheme({
+  cssVariables: {
+    colorSchemeSelector: 'class'
+  },
   colorSchemes: {
     light: {
-        palette: {
-          primary: {
-            main: "#27272a",
-          },
-          grey: {
-            "50": "#fafafa",
-            "100": "#f5f5f5",
-            "200": "#e5e5e5",
-            "300": "#d4d4d4",
-            "400": "#a3a3a3",
-            "500": "#737373",
-            "600": "#525252",
-            "700": "#404040",
-            "800": "#262626",
-            "900": "#171717",
-          },
-          background: {
-            default: "#f5f5f5",
-          },
+      palette: {
+        primary: {
+          main: "#27272a",
+        },
+        grey: {
+          "50": "#fafafa",
+          "100": "#f5f5f5",
+          "200": "#e5e5e5",
+          "300": "#d4d4d4",
+          "400": "#a3a3a3",
+          "500": "#737373",
+          "600": "#525252",
+          "700": "#404040",
+          "800": "#262626",
+          "900": "#171717",
+        },
+        background: {
+          default: "#f5f5f5",
         },
       },
-      dark: {
-        palette: {
-          grey: {
-            "50": "#fafafa",
-            "100": "#f5f5f5",
-            "200": "#e5e5e5",
-            "300": "#d4d4d4",
-            "400": "#a3a3a3",
-            "500": "#737373",
-            "600": "#525252",
-            "700": "#404040",
-            "800": "#262626",
-            "900": "#171717",
-          },
-          background: {
-            default: "#000",
-          },
+    },
+    dark: {
+      palette: {
+        grey: {
+          "50": "#fafafa",
+          "100": "#f5f5f5",
+          "200": "#e5e5e5",
+          "300": "#d4d4d4",
+          "400": "#a3a3a3",
+          "500": "#737373",
+          "600": "#525252",
+          "700": "#404040",
+          "800": "#262626",
+          "900": "#171717",
         },
+        background: {
+          default: "#000",
+        },
+      },
     },
   },
   typography: {
@@ -78,11 +82,11 @@ const theme = createTheme({
                   boxShadow: "none",
                 },
                 ...theme.applyStyles("dark", {
-                    "--_shadow": "#1876c2",
-                    borderColor: "#467297",
-                    backgroundColor: theme.palette.primary.dark,
-                    backgroundImage: `linear-gradient(to bottom, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
-                  }),
+                  "--_shadow": "#1876c2",
+                  borderColor: "#467297",
+                  backgroundColor: theme.palette.primary.dark,
+                  backgroundImage: `linear-gradient(to bottom, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
+                }),
               },
             },
             {
@@ -101,15 +105,15 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: ({ theme }) => ({
-            "--_border":theme.palette.grey[300],
-            "--_border-hover":theme.palette.grey[400],
+          "--_border": theme.palette.grey[300],
+          "--_border-hover": theme.palette.grey[400],
           "& fieldset": {
             // borderColor: theme.palette.grey[300],
             borderColor: "var(--_border)",
           },
           "& .MuiOutlinedInput-root:not(.Mui-focused):hover fieldset": {
             // borderColor: theme.palette.grey[400],
-            borderColor: "var(--_border-hover)"
+            borderColor: "var(--_border-hover)",
           },
           ...theme.applyStyles("dark", {
             // borderColor: theme.palette.grey[700],
@@ -137,9 +141,10 @@ const theme = createTheme({
               },
               ...theme.applyStyles("dark", {
                 boxShadow: `inset 0px 0px 0px 1px ${theme.palette.grey[700]}`,
-                ".MuiCheckbox-root:hover &, .MuiFormControlLabel-root:hover &": {
-                  boxShadow: `inset 0px 0px 0px 1px ${theme.palette.grey[600]}`,
-                },
+                ".MuiCheckbox-root:hover &, .MuiFormControlLabel-root:hover &":
+                  {
+                    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.grey[600]}`,
+                  },
               }),
             })}
           />
