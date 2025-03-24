@@ -2,7 +2,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Theme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import Stack from "@mui/material/Stack"; //จัดเลเอาร์ 1 มิติ Default แนวตั้ง
 import Box from "@mui/material/Box";
@@ -18,15 +18,16 @@ function App() {
   return (
     <AppTheme>
       <Box
-        sx={{
+        sx={(theme : Theme) => ({
           padding: "2rem",
           maxWidth: "400px",
           margin: "auto",
           marginTop: "10vh",
           border: "1px solid #eee",
           boxShadow: "0 2px 10px rgba(0, 0, 0, 0.08)",
-          borderRadius: "4px",
-        }}
+          // borderRadius: "4px",
+          borderRadius: `calc(${theme.shape.borderRadius}px * 2)`
+        })}
       >
         <Stack spacing={2} useFlexGap>
           <CssBaseline />
