@@ -2,7 +2,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import { Button, TextField, Theme } from "@mui/material";
+import { Button, TextField, Theme, useColorScheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import Stack from "@mui/material/Stack"; //จัดเลเอาร์ 1 มิติ Default แนวตั้ง
 import Box from "@mui/material/Box";
@@ -13,10 +13,32 @@ import Link from "@mui/material/Link";
 import Divider from "@mui/material/Divider";
 import SvgIcon from "@mui/material/SvgIcon";
 import AppTheme from "./AppTheme";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+
+function ColorModeToggle() {
+  const { mode, setMode} = useColorScheme();
+  if (!mode) {
+    return null;
+  }
+  return (
+    <Select
+    value={mode}
+    onChange={(e) => {
+      setMode(e.target.value as "system" | "light" | "dark");
+    }}
+    sx= {{ position: "fixed", top: "1rem", right:"1rem"}}>
+      <MenuItem value="system">System</MenuItem>
+      <MenuItem value="light">Light</MenuItem>
+      <MenuItem value="dark">Dark</MenuItem>
+    </Select>
+  );
+}
 
 function App() {
   return (
     <AppTheme>
+      <ColorModeToggle/>
       <Box
         sx={(theme : Theme) => ({
           padding: "2rem",
