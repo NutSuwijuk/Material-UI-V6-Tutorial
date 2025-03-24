@@ -19,17 +19,17 @@ import { ColorSchemeSelectIcon } from "./ColorSchemeSelectIcon";
 import { TextFieldShadcn } from "./mui-treasury/text-field-shadcn";
 
 function ColorModeToggle() {
-  const { mode, setMode} = useColorScheme();
+  const { mode, setMode } = useColorScheme();
   if (!mode) {
     return null;
   }
   return (
     <Select
-    value={mode}
-    onChange={(e) => {
-      setMode(e.target.value as "system" | "light" | "dark");
-    }}
-    sx= {{ position: "fixed", top: "1rem", right:"1rem"}}>
+      value={mode}
+      onChange={(e) => {
+        setMode(e.target.value as "system" | "light" | "dark");
+      }}
+      sx={{ position: "fixed", top: "1rem", right: "1rem" }}>
       <MenuItem value="system">System</MenuItem>
       <MenuItem value="light">Light</MenuItem>
       <MenuItem value="dark">Dark</MenuItem>
@@ -40,11 +40,11 @@ function ColorModeToggle() {
 function App() {
   return (
     <AppTheme>
-      <Box sx={{ position: 'fixed', top:'1rem', right:'1rem' }}>
-        <ColorSchemeSelectIcon/>
+      <Box sx={{ position: 'fixed', top: '1rem', right: '1rem' }}>
+        <ColorSchemeSelectIcon />
       </Box>
       <Box
-        sx={(theme : Theme) => ({
+        sx={(theme: Theme) => ({
           padding: "2rem",
           maxWidth: "400px",
           margin: "auto",
@@ -56,13 +56,19 @@ function App() {
           backgroundColor: theme.vars.palette.background.paper,
           ...theme.applyStyles("dark", {
             borderColor: theme.vars.palette.grey[800],
-          })
+          }),
+          // [theme.breakpoints.down("sm")]: {
+          [theme.breakpoints.down(400)]: {
+            background: "none",
+            border: "none",
+            boxShadow: "none"
+          },
         })}
       >
         <Stack spacing={2} useFlexGap>
           <CssBaseline />
           {/* Reset CSS */}
-          <Typography variant="h1" sx={{fontSize: "2rem", fontWeight: 500}}>
+          <Typography variant="h1" sx={{ fontSize: "2rem", fontWeight: 500 }}>
             Sign in
           </Typography>
           <TextFieldShadcn
@@ -86,14 +92,14 @@ function App() {
             id="password"
             // autoComplete='current-password'
             required
-            variant="filled"
+            variant="outlined"
           ></TextField>
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
             sx={{
               marginLeft: "-12px",
-              "& .MuiFormControlLable-lable": { userSelect: "none"},
+              "& .MuiFormControlLable-lable": { userSelect: "none" },
 
             }}
           />
@@ -103,24 +109,24 @@ function App() {
           <Typography
             component="div"
             variant="body2" //Default = body1
-            sx= {{ textAlign: "center"}} // Texe Center
+            sx={{ textAlign: "center" }} // Texe Center
           >
             Don&apos;t have an account?{" "}
             <span>
               <Link href='#' variant="body2">
-              Sing up
+                Sing up
               </Link>
             </span>
           </Typography>
-          <Divider sx={{ fontSize: "0.785rem"}}>or</Divider>
-          <Button startIcon=<GoogleIcon/>
-          variant="outlined"
-          fullWidth
+          <Divider sx={{ fontSize: "0.785rem" }}>or</Divider>
+          <Button startIcon=<GoogleIcon />
+            variant="outlined"
+            fullWidth
           >
             Sign in with Google
           </Button>
 
-          <Button startIcon=<FacebookIcon/> variant="outlined" fullWidth>
+          <Button startIcon=<FacebookIcon /> variant="outlined" fullWidth>
             Sign in with Facebook
           </Button>
 
