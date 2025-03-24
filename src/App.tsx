@@ -8,6 +8,8 @@ import Stack from "@mui/material/Stack"; //จัดเลเอาร์ 1 ม�
 import Box from "@mui/material/Box";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 
 function App() {
   return (
@@ -54,10 +56,24 @@ function App() {
           sx={{
             marginLeft: "-12px",
             "& .MuiFormControlLable-lable": { userSelect: "none"},
-            
+
           }}
         />
-        <Button>Login</Button>
+        <Button className="submit" variant="contained"
+        >Sign in
+        </Button>
+        <Typography
+          component="div"
+          variant="body2" //Default = body1
+          sx= {{ textAlign: "center"}} // Texe Center
+        >
+          Don&apos;t have an account?{" "}
+          <span>
+            <Link href='#' variant="body2">
+            Sing up
+            </Link>
+          </span>
+        </Typography>
       </Stack>
     </Box>
   );
