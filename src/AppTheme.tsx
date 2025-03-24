@@ -1,6 +1,7 @@
-import { ThemeProvider } from "@emotion/react";
-import { ThemeProviderProps, createTheme } from "@mui/material/styles";
-import React, { Children } from "react";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import React from "react";
+// Supports weights 100-900
+import '@fontsource-variable/inter';
 
 const theme = createTheme({
     palette: {
@@ -8,6 +9,9 @@ const theme = createTheme({
             default: "#f5f5f5",
         },
     },
+    typography: {
+        fontFamily: "'Inter Variable', sans-serif"
+    }
 });
 
 export default function AppTheme ({ children }: React.PropsWithChildren) {
